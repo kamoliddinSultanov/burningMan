@@ -1,3 +1,10 @@
+<!-- 
+    Author: Kamoliddin Sultanov 
+    File purpose: operations that can perform only admin
+
+-->
+
+
 <?php
 require_once 'db.php';
 

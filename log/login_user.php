@@ -1,3 +1,8 @@
+<!-- 
+    Author: Kamoliddin Sultanov 
+    File purpose: user authoreization  
+
+-->
 <?php
 require_once 'db.php';
 

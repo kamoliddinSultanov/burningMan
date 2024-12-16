@@ -1,3 +1,8 @@
+<!-- 
+    Author: Kamoliddin Sultanov 
+    File purpose: registration pannel
+
+-->
 <?php
     require_once 'register_user.php';
 
@@ -32,6 +37,8 @@
             <input class="field" type="password" name="confirm_password" required><br/>
             <input class="field" type="submit" name="register" value="Register">
         </form>
+        <p>already have an account?</p>
+        <a href="log/index.php">Login to system</a>
     </div>
     <?php if ($message): ?>
         <script>alert('<?php echo $message; ?>');</script>

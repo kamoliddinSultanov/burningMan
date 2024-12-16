@@ -1,3 +1,8 @@
+<!-- 
+    Author: Kamoliddin Sultanov 
+    File purpose: operations with events
+
+-->
 <?php
 require_once 'db.php';
 

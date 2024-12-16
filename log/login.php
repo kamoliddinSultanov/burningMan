@@ -1,3 +1,8 @@
+<!-- 
+    Author: Kamoliddin Sultanov 
+    File purpose: user pannel
+
+-->
 <?php
     require_once 'event_functions.php';
 

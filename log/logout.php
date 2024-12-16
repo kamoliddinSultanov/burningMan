@@ -1,3 +1,8 @@
+<!-- 
+    Author: Kamoliddin Sultanov 
+    File purpose: log out the system
+
+-->
 <?php 
 
 // session_start();

@@ -1,3 +1,8 @@
+<!-- 
+    Author: Kamoliddin Sultanov 
+    File purpose: user registration  
+
+-->
 <?php
     require_once 'db.php';
 

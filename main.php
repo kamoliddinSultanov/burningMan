@@ -1,3 +1,8 @@
+<!-- 
+    Author: Kamoliddin Sultanov 
+    File purpose: home page
+
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>

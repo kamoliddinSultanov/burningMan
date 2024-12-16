@@ -1,3 +1,10 @@
+<!-- 
+    Author: Kamoliddin Sultanov 
+    File purpose: database connection
+
+-->
+
+
 <?php
     function getDbConnection() {
         $conn = mysqli_connect('localhost', 'root', '', 'burningman_db');

@@ -1,3 +1,10 @@
+<!-- 
+    Author: Kamoliddin Sultanov 
+    File purpose: displays admin panel
+
+-->
+
+
 <?php
 require_once 'admin_functions.php';
 

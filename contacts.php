@@ -1,3 +1,8 @@
+<!-- 
+    Author: Kamoliddin Sultanov 
+    File purpose: Contact us page
+
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
