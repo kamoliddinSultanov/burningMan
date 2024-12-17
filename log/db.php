@@ -1,12 +1,16 @@
-<!-- 
-    Author: Kamoliddin Sultanov 
+<!--
+    Author: Kamoliddin Sultanov
     File purpose: database connection
 
 -->
 
 
 <?php
-    function getDbConnection() {
+class db
+{
+    // Method to get MySQLi connection
+    public function getDbConnection()
+    {
         $conn = mysqli_connect('localhost', 'root', '', 'burningman_db');
         if (!$conn) {
             die('Unable to connect to the database');
@@ -14,8 +18,9 @@
         return $conn;
     }
 
-    // Function to get PDO connection
-    function getPdoConnection() {
+    // Method to get PDO connection
+    public function getPdoConnection()
+    {
         $host = 'localhost';
         $db = 'burningman_db';
         $user = 'root';
@@ -29,4 +34,5 @@
             die("Error connection: " . $e->getMessage());
         }
     }
+}
 ?>
