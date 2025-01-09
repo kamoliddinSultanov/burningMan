@@ -1,9 +1,5 @@
 pipeline {
-    agent any
-
-    tools {
-        git 'Git for Jenkins'
-    }
+    agent any  
 
     stages {
         stage('Checkout') {
@@ -18,8 +14,8 @@ pipeline {
         stage('Test Git') {
             steps {
                 script {
-                    
-                    sh 'git --version'
+
+                    bat 'git --version'
                 }
             }
         }
