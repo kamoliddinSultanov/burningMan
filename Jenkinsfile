@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        GIT_REPO_URL = 'https://github.com/kamoliddinSultanov/burningMan.git'  // URL вашего репозитория
+        GIT_REPO_URL = 'https://github.com/kamoliddinSultanov/burningMan'  // URL вашего репозитория
         GIT_BRANCH = 'master'  // Укажите нужную ветку
     }
 
