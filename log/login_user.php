@@ -1,5 +1,4 @@
 <?php
-
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
@@ -28,7 +27,7 @@ class UserLogin
 
         if ($row = $result->fetch_assoc()) {
 
-            if (password_verify($password, $row['password'])) {
+            if ($password === $row['password']) {
                 $_SESSION['username'] = $row['username'];
                 $_SESSION['role'] = $row['role'];
                 $_SESSION['user_id'] = $row['id'];
