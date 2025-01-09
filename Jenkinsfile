@@ -1,10 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            image 'php:8.2'
-            args '-v "//c/ProgramData/Jenkins/.jenkins/workspace/burningman_pipeline:/workspace"'
-        }
-    }
+    agent any
     stages {
         stage('Checkout Code') {
             steps {
@@ -15,26 +10,40 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 echo 'Installing PHP dependencies...'
-                sh 'apt-get update && apt-get install -y unzip git'
-                sh 'curl -sS https://getcomposer.org/installer | php'
-                sh 'php composer.phar install'
+
+                sh '''
+                    docker run --rm \
+                    -v $WORKSPACE:/workspace \
+                    -w /workspace \
+                    php:8.2 sh -c "apt-get update && apt-get install -y unzip git && \
+                    curl -sS https://getcomposer.org/installer | php && \
+                    php composer.phar install"
+                '''
             }
         }
         stage('Run Tests') {
             steps {
                 echo 'Running PHPUnit tests...'
-                sh './vendor/bin/phpunit --configuration phpunit.xml'
+
+                sh '''
+                    docker run --rm \
+                    -v $WORKSPACE:/workspace \
+                    -w /workspace \
+                    php:8.2 sh -c "./vendor/bin/phpunit --configuration phpunit.xml"
+                '''
             }
         }
         stage('Build Docker Image') {
             steps {
                 echo 'Building Docker image...'
+
                 sh 'docker build -t php-app .'
             }
         }
         stage('Deploy Application') {
             steps {
                 echo 'Deploying the application...'
+                
                 sh 'docker-compose up -d'
             }
         }
