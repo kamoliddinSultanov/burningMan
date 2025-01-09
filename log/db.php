@@ -10,7 +10,7 @@ class db
 
     public function getDbConnection()
     {
-        $host = getenv('DB_HOST') ?: 'localhost';
+        $host = getenv('DB_HOST') ?: 'mariadb';
         $user = getenv('DB_USER') ?: 'root';
         $pass = getenv('DB_PASSWORD') ?: '';
         $dbname = getenv('DB_NAME') ?: 'burningman_db';
@@ -25,7 +25,7 @@ class db
 
     public function getPdoConnection()
     {
-        $host = getenv('DB_HOST') ?: 'localhost';
+        $host = getenv('DB_HOST') ?: 'mariadb';
         $db = getenv('DB_NAME') ?: 'burningman_db';
         $user = getenv('DB_USER') ?: 'root';
         $pass = getenv('DB_PASSWORD') ?: '';
