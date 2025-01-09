@@ -10,7 +10,7 @@ class db
 
         $conn = mysqli_connect($host, $user, $pass, $dbname);
         if (!$conn) {
-            throw new Exception('Unable to connect to the database: ' . mysqli_connect_error());
+            die('Unable to connect to the database: ' . mysqli_connect_error());
         }
         return $conn;
     }
@@ -27,7 +27,7 @@ class db
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $pdo;
         } catch (PDOException $e) {
-            throw new Exception("Error connecting to the database: " . $e->getMessage());
+            die("Error connecting to the database: " . $e->getMessage());
         }
     }
 }
