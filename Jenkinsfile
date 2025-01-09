@@ -1,10 +1,6 @@
 pipeline {
-    agent {
-        docker {
-            image 'php:8.1'
-            args '-w /workspace'
-        }
-    }
+    agent any
+
     stages {
         stage('Checkout Code') {
             steps {
@@ -15,27 +11,25 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 echo 'Installing PHP dependencies...'
-                bat 'apt-get update && apt-get install -y unzip git'
-                bat 'curl -sS https://getcomposer.org/installer | php'
-                bat 'php composer.phar install'
+                sh 'composer install'
             }
         }
         stage('Run Tests') {
             steps {
                 echo 'Running PHPUnit tests...'
-                bat './vendor/bin/phpunit --configuration phpunit.xml'
+                sh './vendor/bin/phpunit --configuration phpunit.xml'
             }
         }
         stage('Build Docker Image') {
             steps {
                 echo 'Building Docker image...'
-                bat 'docker build -t php-app .'
+                sh 'docker build -t php-app .'
             }
         }
         stage('Deploy Application') {
             steps {
                 echo 'Deploying the application...'
-                bat 'docker-compose up -d'
+                sh 'docker-compose up -d'
             }
         }
     }
