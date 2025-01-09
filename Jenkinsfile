@@ -1,16 +1,22 @@
 pipeline {
     agent any
+
+    environment {
+        GIT_REPO_URL = 'https://github.com/kamoliddinSultanov/burningMan.git'  // URL вашего репозитория
+        GIT_BRANCH = 'master'  // Укажите нужную ветку
+    }
+
     stages {
         stage('Checkout Code') {
             steps {
                 echo 'Cloning the repository...'
-                git branch: 'master', url: 'https://github.com/kamoliddinSultanov/burningMan.git'
+                git branch: GIT_BRANCH, url: GIT_REPO_URL
             }
         }
+
         stage('Install Dependencies') {
             steps {
                 echo 'Installing PHP dependencies...'
-
                 sh '''
                     docker run --rm \
                     -v $WORKSPACE:/workspace \
@@ -21,10 +27,10 @@ pipeline {
                 '''
             }
         }
+
         stage('Run Tests') {
             steps {
                 echo 'Running PHPUnit tests...'
-
                 sh '''
                     docker run --rm \
                     -v $WORKSPACE:/workspace \
@@ -33,21 +39,22 @@ pipeline {
                 '''
             }
         }
+
         stage('Build Docker Image') {
             steps {
                 echo 'Building Docker image...'
-
                 sh 'docker build -t php-app .'
             }
         }
+
         stage('Deploy Application') {
             steps {
                 echo 'Deploying the application...'
-                
                 sh 'docker-compose up -d'
             }
         }
     }
+
     post {
         success {
             echo 'Pipeline completed successfully!'
