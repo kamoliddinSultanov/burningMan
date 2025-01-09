@@ -1,8 +1,3 @@
-<!-- 
-    Author: Kamoliddin Sultanov 
-    File purpose: login in to system
-
--->
 <?php
 require_once 'login_user.php'; // Include the UserLogin class
 
@@ -55,3 +50,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
 <?php endif; ?>
 </body>
 </html>
+<!--
+    Author: Kamoliddin Sultanov
+    File purpose: login in to system
+
+-->

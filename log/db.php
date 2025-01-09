@@ -1,9 +1,3 @@
-<!--
-    Author: Kamolidin Sultanov
-    Purpose: Connction to database
-
--->
-
 <?php
 class db
 {
@@ -40,3 +34,9 @@ class db
     }
 }
 ?>
+
+<!--
+    Author: Kamolidin Sultanov
+    Purpose: Connction to database
+
+-->
