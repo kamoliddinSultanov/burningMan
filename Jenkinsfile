@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'php:8.2'
-            args '-v //c/ProgramData/Jenkins/.jenkins/workspace/burningman_pipeline:/workspace'
+            args '-v "//c/ProgramData/Jenkins/.jenkins/workspace/burningman_pipeline:/workspace"'
         }
     }
     stages {
