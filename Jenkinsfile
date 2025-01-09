@@ -1,7 +1,8 @@
 pipeline {
     agent {
         docker {
-            image 'php:8.2'
+            image 'php:8.1'
+            args '-w /workspace'
         }
     }
     stages {
