@@ -5,7 +5,6 @@ class EventFunctions {
     private $pdo;
 
     public function __construct() {
-        // Instantiate the db class and call getPdoConnection
         $db = new db();
         $this->pdo = $db->getPdoConnection();
     }
@@ -41,19 +40,18 @@ class EventFunctions {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-
     public function verifyUserSession() {
-        session_start(); // Start the session
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
         if (!isset($_SESSION['username']) || !isset($_SESSION['user_id'])) {
-            // Redirect to the login page if session is invalid
             header("Location: login.php");
             exit();
         }
     }
 }
-?>
-<!--
-    Author: Kamoliddin Sultanov
-    File purpose: operations with events
 
--->
+// Author: Kamoliddin Sultanov
+// File purpose: operations with events
+
+
