@@ -1,10 +1,3 @@
-<!-- 
-    Author: Kamoliddin Sultanov 
-    File purpose: displays admin panel
-
--->
-
-
 <?php
 require_once 'admin_functions.php';
 
@@ -156,3 +149,9 @@ $user_event_data = $adminFunctions->fetchUserEventData();
 </table>
 </body>
 </html>
+<!--
+    Author: Kamoliddin Sultanov
+    File purpose: displays admin panel
+
+-->
+

@@ -1,8 +1,3 @@
-<!-- 
-    Author: Kamoliddin Sultanov 
-    File purpose: registration pannel
-
--->
 <?php
 // Include the necessary class files
 require_once 'register_user.php';
@@ -56,3 +51,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
 <?php endif; ?>
 </body>
 </html>
+<!--
+    Author: Kamoliddin Sultanov
+    File purpose: registration pannel
+
+-->

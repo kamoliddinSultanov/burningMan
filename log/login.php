@@ -1,8 +1,3 @@
-<!-- 
-    Author: Kamoliddin Sultanov 
-    File purpose: user pannel
-
--->
 <?php
 require_once 'event_functions.php';
 
@@ -111,3 +106,8 @@ $all_events = $eventFunctions->getAvailableEvents($user_id);
 </body>
 </html>
 
+<!--
+    Author: Kamoliddin Sultanov
+    File purpose: user pannel
+
+-->
