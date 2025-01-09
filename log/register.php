@@ -32,6 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
     <link rel="stylesheet" href="../css/register.css">
 </head>
 <body>
+<a href="../main.php">< Back to home ></a>
 <h2>Register</h2>
 <div class="form">
     <form action="register.php" method="post">

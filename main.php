@@ -75,9 +75,7 @@
 				<img src="img/img3.jpg" alt="Event photo 3">
 			</div>
 
-			<div class="crud">
-				<a href="crud/index.php"> Check all participants</a>
-			</div>
+
 		</div>
 	</section>
 	<footer id="footer" class="footer">
