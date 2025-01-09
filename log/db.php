@@ -1,7 +1,6 @@
 <?php
 class db
 {
-
     public function getDbConnection()
     {
         $host = getenv('DB_HOST') ?: 'mariadb';
@@ -11,11 +10,10 @@ class db
 
         $conn = mysqli_connect($host, $user, $pass, $dbname);
         if (!$conn) {
-            die('Unable to connect to the database: ' . mysqli_connect_error());
+            throw new Exception('Unable to connect to the database: ' . mysqli_connect_error());
         }
         return $conn;
     }
-
 
     public function getPdoConnection()
     {
@@ -29,14 +27,7 @@ class db
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $pdo;
         } catch (PDOException $e) {
-            die("Error connecting to the database: " . $e->getMessage());
+            throw new Exception("Error connecting to the database: " . $e->getMessage());
         }
     }
 }
-?>
-
-<!--
-    Author: Kamolidin Sultanov
-    Purpose: Connction to database
-
--->
