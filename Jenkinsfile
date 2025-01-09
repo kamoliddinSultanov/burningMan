@@ -1,23 +1,49 @@
 pipeline {
-    agent any  
-
+    agent {
+        docker {
+            image 'php:8.2'
+        }
+    }
     stages {
-        stage('Checkout') {
+        stage('Checkout Code') {
             steps {
-                script {
-
-                    checkout scm
-                }
+                echo 'Cloning the repository...'
+                git branch: 'master', url: 'https://github.com/kamoliddinSultanov/burningMan.git'
             }
         }
-
-        stage('Test Git') {
+        stage('Install Dependencies') {
             steps {
-                script {
-
-                    bat 'git --version'
-                }
+                echo 'Installing PHP dependencies...'
+                bat 'apt-get update && apt-get install -y unzip git'
+                bat 'curl -sS https://getcomposer.org/installer | php'
+                bat 'php composer.phar install'
             }
+        }
+        stage('Run Tests') {
+            steps {
+                echo 'Running PHPUnit tests...'
+                bat './vendor/bin/phpunit --configuration phpunit.xml'
+            }
+        }
+        stage('Build Docker Image') {
+            steps {
+                echo 'Building Docker image...'
+                bat 'docker build -t php-app .'
+            }
+        }
+        stage('Deploy Application') {
+            steps {
+                echo 'Deploying the application...'
+                bat 'docker-compose up -d'
+            }
+        }
+    }
+    post {
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed. Please check the logs.'
         }
     }
 }
