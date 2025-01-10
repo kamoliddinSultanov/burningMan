@@ -1,5 +1,5 @@
 <?php
-ob_start(); // Начало буферизации вывода
+ob_start();
 require_once 'login_user.php'; // Include the UserLogin class
 
 $message = '';
@@ -52,5 +52,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
 </body>
 </html>
 <?php
-ob_end_flush(); // Завершение буферизации вывода
+ob_end_flush();
 ?>
