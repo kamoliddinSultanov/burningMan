@@ -13,7 +13,7 @@ class UserRegistrationTest extends TestCase
         $mockDbConnection->method('prepare')->willReturn($mockStatement);
         $mockStatement->method('bind_param');
         $mockStatement->method('execute');
-        $mockStatement->method('get_result')->willReturn(false); // Возвращаем false для отсутствия результата
+        $mockStatement->method('get_result')->willReturn(false); 
 
         $userRegistration = new UserRegistration($mockDbConnection);
 
